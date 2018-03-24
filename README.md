@@ -1,27 +1,23 @@
-imagetyperz-api-client - Imagetyperz API wrapper
-=========================================
+imagetyperz-api - Imagetyperz nodejs API wrapper
+================================================
 
-ImagetyperzAPI (client) is a super easy to use bypass captcha API wrapper for imagetyperz.com captcha service
+ImagetyperzAPI is a super easy to use bypass captcha API wrapper for imagetyperz.com captcha service
 
 ## Installation
 
-    npm install imagetyperz-api-client
-
+	npm install imagetyperz-api
 or
 
-    git clone https://github.com/imagetyperz-api/imagetyperz-api-javascript
+	git clone https://github.com/imagetyperz-api/imagetyperz-api-nodejs
 
 ## How to use?
 
-ImagetyperzAPI (client) uses promise handling
+ImagetyperzAPI uses promise handling
 
 Simply require the module, set the auth details and start using the captcha service:
 
 ``` javascript
-<!-- Load jQuery (dependency) -->
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-<!-- Load the API library -->
-<script src="../lib/imagetyperz-api-client.js"></script>
+var imagetyperzapi = require('imagetyperz-api'); 
 ```
 Set access_token or username and password (legacy) for authentication
 
@@ -44,11 +40,11 @@ imagetyperzapi.account_balance().then(function (balance) {
 **Submit image captcha**
 
 ``` javascript
-imagetyperzapi.solve_captcha('/9j/4AgABAQAAAQABAAD//gATNT.....').then(function (response) {
+imagetyperzapi.solve_captcha('captcha.jpg').then(function (response) {
     console.log('Captcha text:', response);    
 })
 ```
-**Works with both b64 encoded string and URL**
+**Works with both image file and URL**
 ``` javascript
 imagetyperzapi.solve_captcha('http://abc.com/your_captcha.jpg').then(function (response) {
     console.log('Captcha text:', response);    
@@ -109,7 +105,7 @@ imagetyperzapi.set_captcha_bad('6544564');
 ```
 
 ## Examples
-Check the example/example.html
+Check the example/example.js
 
 ## License
 API library is licensed under the MIT License
